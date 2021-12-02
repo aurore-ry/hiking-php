@@ -1,3 +1,4 @@
-<?php 
-phpinfo()
+<?php
+$a = "Its working!!!";
+echo $a; 
 ?>

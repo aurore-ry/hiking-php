@@ -1,1 +1,26 @@
-init
+version: "3"
+services:
+  php:
+    build: "./"
+    volumes:
+      - "./src:/var/www/html"
+    ports:
+      - "80:80"
+  mysql:
+    image: "mariadb"
+    restart: "unless-stopped"
+    volumes:
+      - "mysql_db:/var/lib/mysql"
+    ports:
+      - "3306:3306"
+      - "33060:33060"
+    env_file: .env
+  phpmyadmin:
+    image: "phpmyadmin/phpmyadmin"
+    ports:
+      - "8001:80"
+    depends_on:
+      - "mysql"
+    env_file: .env
+volumes:
+  mysql_db:
