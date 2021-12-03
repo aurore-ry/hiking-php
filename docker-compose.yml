@@ -5,6 +5,7 @@ services:
     volumes:
       - "./src:/var/www/html"
     ports:
+      - "3000:3000"
       - "80:80"
   mysql:
     image: "mariadb"
@@ -14,13 +15,17 @@ services:
     ports:
       - "3306:3306"
       - "33060:33060"
-    env_file: .env
+    environment:
+      env_file: .env
   phpmyadmin:
     image: "phpmyadmin/phpmyadmin"
+    restart: always
     ports:
       - "8001:80"
     depends_on:
       - "mysql"
-    env_file: .env
+    environment:
+      env_file: .env
+
 volumes:
   mysql_db:
