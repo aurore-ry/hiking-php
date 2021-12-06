@@ -16,6 +16,8 @@ services:
     env_file: .env
     networks:
       - mysql_network
+    volumes:
+      - mysql_db_volume
   phpmyadmin:
     image: "phpmyadmin/phpmyadmin:latest"
     restart: always
