@@ -19,14 +19,28 @@
   <title>Hikingders</title>
 </head>
 <body>
+  <header>
+    <img src="../images/logo.jpg" alt="">
+    <nav>
+
+    </nav>
+  </header>
+
+  <div class="container-box">
+    <header>
+      <div id="nav-hiking">
+
+      </div>
+    </header>
   <?php foreach ($res as $prop) : ?>
     <div class="hiking-container">
-        <div class="hike-col"><p>Place: </p><?php echo $prop["name"]; ?></div>
-        <div class="hike-col"><p>Difficulty: </p><?php echo $prop["difficulty"]; ?></div>
-        <div class="hike-col"><p>Distance:</p><?php echo $prop["distance"]; ?></div>
-        <div class="hike-col"><p>Duration:</p><?php echo $prop["duration"]; ?></div>
-        <div class="hike-col"><p>Elevation:</p><?php echo $prop["elevation"]; ?></div>
+        <div class="hike-col"><p class="pointer">Place: </p> <p class="prop-data"><?php echo $prop["name"]; ?></p></div>
+        <div class="hike-col"><p class="pointer">Difficulty: </p><p class="prop-data"><?php echo $prop["difficulty"]; ?></p></div>
+        <div class="hike-col"><p class="pointer">Distance:</p><p class="prop-data"><?php echo $prop["distance"]; ?></p></div>
+        <div class="hike-col"><p class="pointer">Duration:</p><p class="prop-data"><?php echo $prop["duration"]; ?></p></div>
+        <div class="hike-col"><p class="pointer">Elevation:</p><p class="prop-data"><?php echo $prop["elevation"]; ?></p></div>
     </div>
    <?php endforeach; ?>
+  </div>
 </body>
 </html>
