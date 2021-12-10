@@ -1,0 +1,13 @@
+.hiking-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+
+  gap: 15px;
+}
+
+.hike-col {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
