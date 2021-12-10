@@ -9,8 +9,9 @@ if (isset($_POST['submit'])) {
      $password = $_POST['password'];
      $confirm = $_POST['confirm'];
 
-    require_once 'dbh.inc.php';
+    require_once 'db.inc.php';
     require_once 'functions.inc.php';
+    $db= new MyPDO();
 
     if (emptyInputSignup($firstname, $lastname, $username, $email, $password, $confirm) !== false) {
         header('location: ../signup.php?error=emptyinput');

@@ -1,5 +1,6 @@
 <?php
-
+require_once "./db.inc.php";
+$db = new MyPDO();
 function emptyInputSignup($firstname, $lastname, $username, $email, $password, $confirm) {
     $result;
     if (empty($firstname) || empty($lastname) || empty($username) || empty($email) || empty($password) || empty($confirm)) {
@@ -43,7 +44,7 @@ function passwordMatch($password, $confirm) {
 function usernameTaken($db, $username) {
     $result;
     try {
-        $sql = "SELECT * FROM user WHERE username = :username;";
+        $sql = "SELECT * FROM users WHERE username = :username;";
         $stmt = $db->prepare($sql);
 
         $stmt->bindParam(":username", $username, PDO::PARAM_STR);
@@ -65,7 +66,7 @@ function usernameTaken($db, $username) {
 function createUser($db, $lastname, $firstname, $username, $email, $password) {
     $result;
     try {
-        $sql = "INSERT INTO user (lastname, firstname, username, email, password) VALUES (:lastname, :firstname, :username, :email, :password);";
+        $sql = "INSERT INTO users (lastname, firstname, username, email, password) VALUES (:lastname, :firstname, :username, :email, :password);";
         $stmt = $db->prepare($sql);
         
         $passwordhash = password_hash($password, PASSWORD_BCRYPT, ["cost" => 14]);
@@ -104,7 +105,7 @@ function loginUser($db, $username, $password) {
     }
     //
     try {
-        $sql = "SELECT * FROM user WHERE username = :username;";
+        $sql = "SELECT * FROM users WHERE username = :username;";
         $stmt = $db->prepare($sql);
 
         $stmt->bindParam(":username", $username, PDO::PARAM_STR);
