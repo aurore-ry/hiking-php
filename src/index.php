@@ -28,5 +28,6 @@
         <div class="hike-col"><p>Elevation:</p><?php echo $prop["elevation"]; ?></div>
     </div>
    <?php endforeach; ?>
+   <-- commented -->
 </body>
 </html>
