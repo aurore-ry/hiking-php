@@ -23,18 +23,21 @@ include_once 'components/header.php';
   <title>Hikingders</title>
 </head>
 <body>
-<?php foreach ($res as $prop) : ?>
-    <div class="hiking-container">
+  <div class="container-box">
+
+    <?php foreach ($res as $prop) : ?>
+      <div class="hiking-container">
         <div class="hike-col"><p class="pointer">Place: </p> <p class="prop-data"><?php echo $prop["name"]; ?></p></div>
         <img src="<?php echo $prop["image"]?>" alt="">
         <div class="hike-col"><p class="pointer">Difficulty: </p><p class="prop-data"><?php echo $prop["difficulty"]; ?></p></div>
         <div class="hike-col"><p class="pointer">Distance:</p><p class="prop-data"><?php echo $prop["distance"]; ?></p></div>
         <div class="hike-col"><p class="pointer">Duration:</p><p class="prop-data"><?php echo $prop["duration"]; ?></p></div>
         <div class="hike-col"><p class="pointer">Elevation:</p><p class="prop-data"><?php echo $prop["elevation"]; ?></p></div>
+      </div>
+      <?php endforeach; ?>
     </div>
-   <?php endforeach; ?>
-</body>
-</html>
-<?php
+    </body>
+    </html>
+    <?php
 require_once './components/footer.php'
 ?>

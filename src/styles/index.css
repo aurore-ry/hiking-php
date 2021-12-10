@@ -1,13 +1,29 @@
+.container-box {
+  width: 1200px;
+  height: 400px;
+  display: flex;
+}
+
 .hiking-container {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
 
   gap: 15px;
+
+  background-color: #3e4150;
 }
 
 .hike-col {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+}
+
+.pointer {
+  font-weight: bold;
+  color: #00b980;
+}
+.prop-data {
+  color: wheat;
 }
