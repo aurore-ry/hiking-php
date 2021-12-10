@@ -19,16 +19,6 @@
   <title>Hikingders</title>
 </head>
 <body>
-  <header>
-    <img src="../images/logo.jpg" alt="">
-    <nav>
-      <ul>
-      <li><a href="#">HOME</a></li>
-      <li><a href="#">MY HIKINGS</a></li>
-      <li><a href="#">CONTACT</a></li>
-      </ul>
-    </nav>
-  </header>
 
   <div class="container-box">
     <header>
@@ -39,6 +29,7 @@
   <?php foreach ($res as $prop) : ?>
     <div class="hiking-container">
         <div class="hike-col"><p class="pointer">Place: </p> <p class="prop-data"><?php echo $prop["name"]; ?></p></div>
+        <img src="<?php echo $prop["image"]?>" alt="">
         <div class="hike-col"><p class="pointer">Difficulty: </p><p class="prop-data"><?php echo $prop["difficulty"]; ?></p></div>
         <div class="hike-col"><p class="pointer">Distance:</p><p class="prop-data"><?php echo $prop["distance"]; ?></p></div>
         <div class="hike-col"><p class="pointer">Duration:</p><p class="prop-data"><?php echo $prop["duration"]; ?></p></div>
