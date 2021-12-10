@@ -22,7 +22,11 @@
   <header>
     <img src="../images/logo.jpg" alt="">
     <nav>
-
+      <ul>
+      <li><a href="#">HOME</a></li>
+      <li><a href="#">MY HIKINGS</a></li>
+      <li><a href="#">CONTACT</a></li>
+      </ul>
     </nav>
   </header>
 
