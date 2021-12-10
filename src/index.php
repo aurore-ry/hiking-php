@@ -1,5 +1,5 @@
 <?php
-  require_once "./db.php";
+  require_once "./includes/dbh.inc.php";
   
   $db = new MyPDO();
   $stmt = $db->prepare('SELECT * FROM hiking');
@@ -9,6 +9,10 @@
   // print_r($res)
   ?> 
 
+
+<?php
+include_once 'components/header.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,3 +34,6 @@
    <?php endforeach; ?>
 </body>
 </html>
+<?php
+require_once './components/footer.php'
+?>
