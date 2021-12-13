@@ -13,7 +13,7 @@ function emptyInputSignup($firstname, $lastname, $username, $email, $password, $
 
 function emptyInputUpdate($firstname, $lastname, $username, $email, $password, $confirm) {
     $result;
-    if (empty($firstname) || empty($lastname) || empty($username) || empty($email) || (empty($password) && ) || empty($confirm)) {
+    if (empty($firstname) || empty($lastname) || empty($username) || empty($email)) {
         $result = true;
     } else {
         $result = false;
@@ -74,7 +74,6 @@ function usernameTaken($db, $username) {
 }
 
 function createUser($db, $lastname, $firstname, $username, $email, $password) {
-    $result;
     try {
         $sql = "INSERT INTO users (lastname, firstname, username, email, password) VALUES (:lastname, :firstname, :username, :email, :password);";
         $stmt = $db->prepare($sql);
@@ -132,7 +131,7 @@ function loginUser($db, $username, $password) {
     $checkPassword = password_verify($password, $passwordhashed);
 
     if ($checkPassword === false) {
-        header('Location: ../login.php');
+        header('Location: ../login.php?error=wronglogin');
         exit();
     } else if ($checkPassword === true) {
         session_start();
