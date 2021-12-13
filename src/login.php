@@ -1,5 +1,5 @@
 <?php
-require_once './components/header.php';
+require_once './components/starter.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,13 +11,17 @@ require_once './components/header.php';
     <title>login</title>
 </head>
 <body>
+<?php
+require_once './components/header.php';
+?>
+
     <h1>Login</h1>
     <form action="includes/login.inc.php" method="post"> 
         <input type="text" name="username" placeholder="username"> <br>
         <input type="password" name="password" placeholder="password"> <br>
     <button type="submit" name="submit">log In</button>
     </form>
-    <?php
+<?php
 if (isset($_GET["error"])) {
    if ($_GET["error"] == "emptyinput") {
     echo "<p>Fill in all the fields!</p>";
@@ -28,9 +32,9 @@ if (isset($_GET["error"])) {
     }
 }
 ?>
-</body>
-</html>
-
 <?php
 require_once './components/footer.php'
 ?>
+</body>
+</html>
+

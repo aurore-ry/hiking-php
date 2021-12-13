@@ -22,7 +22,6 @@ elseif (isset($_SESSION["username"])){
     $currentUser = $stmt->fetch(PDO::FETCH_ASSOC);
     $id = $currentUser['id'];
 }
-require_once './components/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +33,9 @@ require_once './components/header.php';
     <title>Sign up</title>
 </head>
 <body>
+    <?php
+    require_once './components/header.php';
+    ?>
     <h1>Modify information</h1>
     <form action="includes/profile.inc.php" method="post">
     <label for="firstname">First Name</label>
@@ -71,9 +73,9 @@ if (isset($_GET["error"])) {
     }   
 }
 ?>
-</body>
-</html>
-
 <?php
 require_once './components/footer.php'
 ?>
+</body>
+</html>
+

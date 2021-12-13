@@ -4,7 +4,6 @@ if (!isset($_SESSION["username"])) {
     header('location: ../login.php?error=notlogged');
         exit();
 }
-require_once './components/header.php';
 ?>
 
 
@@ -17,10 +16,14 @@ require_once './components/header.php';
     <title>My Hikings</title>
 </head>
 <body>
+    <?php
+    require_once './components/header.php';
+    ?>
+
     <h1>My Hikings</h1>
+    <?php
+    require_once './components/footer.php'
+    ?>
 </body>
 </html>
 
-<?php
-require_once './components/footer.php'
-?>
