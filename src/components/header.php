@@ -24,7 +24,7 @@ if (!isset($_SESSION["username"])) {
                 </li>
                 <?php
                     if (isset($_SESSION["username"])) {
-                        echo "<li>". $_SESSION["username"] ." connected</li>";
+                        echo "<li><a href=' ../profile.php'>". $_SESSION["username"] ." connected</a></li>";
                         echo "<li><a href='../includes/logout.inc.php'>Logout</a></li>";
                     } else {
                         echo "<li><a href='../signup.php'>Signup</a></li>";

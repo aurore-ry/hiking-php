@@ -11,6 +11,16 @@ function emptyInputSignup($firstname, $lastname, $username, $email, $password, $
     return $result;
 }
 
+function emptyInputUpdate($firstname, $lastname, $username, $email, $password, $confirm) {
+    $result;
+    if (empty($firstname) || empty($lastname) || empty($username) || empty($email) || (empty($password) && ) || empty($confirm)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
 function invalidUsername($username) {
     $result;
     if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
@@ -130,5 +140,29 @@ function loginUser($db, $username, $password) {
         $_SESSION["id"] = $usernameCheck["id"];
         header("location: ../index.php");
         exit();
+    }
+}
+
+function updateUser($db, $lastname, $firstname, $username, $email, $password, $currentUser) {
+    
+    try {
+        $sql = "UPDATE users SET lastname = :lastname, firstname = :firstname, username = :username, email = :email, password = :password WHERE username = :currentUser;";
+        $stmt = $db->prepare($sql);
+        
+        $passwordhash = password_hash($password, PASSWORD_BCRYPT, ["cost" => 14]);
+
+        $stmt->bindParam(":lastname", $lastname, PDO::PARAM_STR);
+        $stmt->bindParam(":firstname", $firstname, PDO::PARAM_STR);
+        $stmt->bindParam(":username", $username, PDO::PARAM_STR);
+        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+        $stmt->bindParam(":password", $passwordhash, PDO::PARAM_STR);
+        $stmt->bindParam(":currentUser", $currentUser, PDO::PARAM_STR);
+        $stmt->execute();
+        header("location: ../index.php?error=none");
+        exit;
+    } catch(Exception $e) {
+        echo $e->getMessage();
+        header('location: ../profile.php?error=stmtfailed');
+    exit;
     }
 }
