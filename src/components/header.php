@@ -15,7 +15,6 @@ if (!isset($_SESSION["username"])) {
 <body>
     <header>
         <nav>
-            <img src="../icons/logo.jpg" alt="Hikingders">
             <ul>
                 <li>
                     <a href="../index.php">Home</a>

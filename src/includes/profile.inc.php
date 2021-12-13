@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
      $email = $_POST['email'];
      $password = $_POST['password'];
      $confirm = $_POST['confirm'];
-     $currentUser = $_POST['currentUser'];
+     $userId = $_POST['currentUser'];
     require_once 'db.inc.php';
     require_once 'functions.inc.php';
     $db= new MyPDO();
@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
         exit();
     }
     
-    updateUser($db, $firstname, $lastname, $username, $email, $password, $currentUser);
+    updateUser($db, $firstname, $lastname, $username, $email, $password, $userId);
 
 } else {
     header('location: ../profile.php');

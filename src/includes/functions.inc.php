@@ -142,10 +142,12 @@ function loginUser($db, $username, $password) {
     }
 }
 
-function updateUser($db, $lastname, $firstname, $username, $email, $password, $currentUser) {
+function updateUser($db, $lastname, $firstname, $username, $email, $password, $userId) {
     
     try {
-        $sql = "UPDATE users SET lastname = :lastname, firstname = :firstname, username = :username, email = :email, password = :password WHERE username = :currentUser;";
+        if (!empty($password)) {
+        $sql = "UPDATE users SET lastname = :lastname, firstname = :firstname, username = :username, email = :email, password = :password WHERE id = :userId;";
+        }
         $stmt = $db->prepare($sql);
         
         $passwordhash = password_hash($password, PASSWORD_BCRYPT, ["cost" => 14]);
@@ -155,8 +157,9 @@ function updateUser($db, $lastname, $firstname, $username, $email, $password, $c
         $stmt->bindParam(":username", $username, PDO::PARAM_STR);
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->bindParam(":password", $passwordhash, PDO::PARAM_STR);
-        $stmt->bindParam(":currentUser", $currentUser, PDO::PARAM_STR);
+        $stmt->bindParam(":userId", $userId, PDO::PARAM_INT);
         $stmt->execute();
+        $_SESSION['username'] = $username;
         header("location: ../index.php?error=none");
         exit;
     } catch(Exception $e) {

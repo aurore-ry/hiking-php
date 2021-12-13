@@ -9,10 +9,10 @@ elseif (isset($_SESSION["username"])){
     $db = new MyPDO();
 
     try {
-        $sql = "SELECT lastname, firstname, username, email FROM users WHERE username = :username;";
+        $sql = "SELECT id,lastname, firstname, username, email FROM users WHERE id = :id;";
         $stmt = $db->prepare($sql);
 
-        $stmt->bindParam(":username", $_SESSION['username'], PDO::PARAM_STR);
+        $stmt->bindParam(":id", $_SESSION['id'], PDO::PARAM_INT);
         $stmt->execute();
     } catch(Exception $e) {
         echo $e->getMessage();
@@ -20,7 +20,7 @@ elseif (isset($_SESSION["username"])){
     exit;
     }
     $currentUser = $stmt->fetch(PDO::FETCH_ASSOC);
-   
+    $id = $currentUser['id'];
 }
 require_once './components/header.php';
 ?>
@@ -49,8 +49,9 @@ require_once './components/header.php';
     <label for="confirm">Confirm password</label>
     <input type="password" name="confirm" placeholder="confirm password"><br>
     <button type="submit" name="submit">update profile</button>
-    <input type="hidden" name="currentUser" value="<?php $currentUser ?>">
+    <input type="hidden" name="currentUser" value="<?php echo "$id" ?>">
 </form>
+
 <?php
 if (isset($_GET["error"])) {
    if ($_GET["error"] == "emptyinput") {
