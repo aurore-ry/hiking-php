@@ -1,13 +1,56 @@
+#hike-app {
+  width: 1260px;
+  height: 400px;
+  margin: 100px 250px;
+
+  display: flex;
+  flex-flow: column nowrap;
+
+  justify-content: center;
+  align-items: center;
+}
+
+#header-hike-bar {
+  width: 1260px;
+  height: auto;
+  min-height: 45px;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #00b980;
+}
+
+.container-box {
+  max-width: 11992px;
+  display: flex;
+  padding: 25px 25px;
+  padding-right: 1.5px;
+  background-color: #3e4150;
+  gap: 15px;
+}
+
 .hiking-container {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-
   gap: 15px;
+
+  border-right: 1px solid #00b980;
 }
 
 .hike-col {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+}
+
+.pointer {
+  font-weight: bold;
+  color: #00b980;
+}
+.prop-data {
+  color: wheat;
 }

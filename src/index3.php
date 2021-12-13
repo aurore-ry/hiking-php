@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
   require_once "./includes/db.inc.php";
   
   $db = new MyPDO();
@@ -29,4 +29,4 @@
 //     </div>
 //    <?php endforeach; ?>
 // </body>
-// </html>
+// </html> -->
