@@ -9,7 +9,7 @@ require_once './components/starter.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Sign up</title>
-    <link rel="stylesheet" href="./styles/signup.css">
+    <link rel="stylesheet" href="/styles/signup.css">
 </head>
 <body>
     <?php
