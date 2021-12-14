@@ -15,7 +15,6 @@ require_once './components/starter.php';
 <?php
 require_once './components/header.php';
 ?>
- <img src="./icons/logo.jpg" alt="logo">
 <div class="form">
         <h1>Login</h1>
         <form action="includes/login.inc.php" method="post">

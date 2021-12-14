@@ -87,7 +87,7 @@ header {
     min-height: 15%;
     width: 100%;
     max-width: 1440px;
-    padding: 3rem;
+    padding-top: 3rem;
 }
 
 nav ul {
@@ -133,4 +133,9 @@ background-color: #00B980;
 footer {
     text-align: center;
     padding: 2rem;
+}
+
+img {
+    height: 10rem;
+    width: auto;
 }

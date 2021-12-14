@@ -31,31 +31,31 @@ elseif (isset($_SESSION["username"])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Sign up</title>
+    <link rel="stylesheet" href="./styles/signup.css">
 </head>
 <body>
     <?php
     require_once './components/header.php';
     ?>
+<div class="form">
     <h1>Modify information</h1>
     <form action="includes/profile.inc.php" method="post">
-    <label for="firstname">First Name</label>
-    <input type="text" name="firstname" value="<?php echo "$currentUser[firstname]";?>"> <br>
-    <label for="lastname">Last Name</label>
-    <input type="text" name="lastname" value="<?php echo "$currentUser[lastname]";?>"> <br>
-    <label for="email">Email</label>
-    <input type="text" name="email" value="<?php echo "$currentUser[email]";?>"> <br>
-    <label for="username">Username</label>
-    <input type="text" name="username" value="<?php echo "$currentUser[username]";?>"> <br>
-    <label for="password">Change password</label>
-    <input type="password" name="password" placeholder="password"> <br>
-    <label for="confirm">Confirm password</label>
-    <input type="password" name="confirm" placeholder="confirm password"><br>
-    <button type="submit" name="submit">update profile</button>
+    <label class="form-label" for="firstname">First Name</label>
+    <input class="form-input" type="text" name="firstname" value="<?php echo "$currentUser[firstname]";?>"> <br>
+    <label class="form-label" for="lastname">Last Name</label>
+    <input class="form-input" type="text" name="lastname" value="<?php echo "$currentUser[lastname]";?>"> <br>
+    <label class="form-label" for="email">Email</label>
+    <input class="form-input" type="text" name="email" value="<?php echo "$currentUser[email]";?>"> <br>
+    <label class="form-label" for="username">Username</label>
+    <input class="form-input" type="text" name="username" value="<?php echo "$currentUser[username]";?>"> <br>
+    <label class="form-label" for="password">Change password</label>
+    <input class="form-input" type="password" name="password" placeholder="password"> <br>
+    <label class="form-label" for="confirm">Confirm password</label>
+    <input class="form-input" type="password" name="confirm" placeholder="confirm password"><br>
     <input type="hidden" name="currentUser" value="<?php echo "$id" ?>">
-</form>
-
-<?php
+    <?php
 if (isset($_GET["error"])) {
+    echo  '<div class="error">';
    if ($_GET["error"] == "emptyinput") {
     echo "<p>Fill in all the fields!</p>";
    } else if ($_GET["error"] == "invaliduser") {
@@ -70,9 +70,14 @@ if (isset($_GET["error"])) {
     echo "<p>Something went wrong! Please retry!</p>";
     } else if ($_GET["error"] == "invaliduser") {
     echo "<p>Choose an other username! This one is not available!</p>";
-    }   
+    }
+    echo '</div>';   
 }
 ?>
+    <button class="sign-in" type="submit" name="submit">update profile</button>
+</form>
+</div>
+
 <?php
 require_once './components/footer.php'
 ?>
