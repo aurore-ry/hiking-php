@@ -16,7 +16,7 @@ require_once './components/starter.php';
     require_once './components/header.php';
     ?>
     <div class="form">
-        <h1>Signup</h1>
+        <h1>Sign up</h1>
         <form action="includes/signup.inc.php" method="post">
         <label class="form-label" for="firstname">First Name</label>
         <input class="form-input" type="text" name="firstname" placeholder="First name"> <br>

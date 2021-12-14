@@ -171,3 +171,23 @@ function updateUser($db, $lastname, $firstname, $username, $email, $password, $u
     exit;
     }
 }
+
+function addHike($db, $name, $difficulty, $distance, $duration, $elevation) {
+    try {
+        $sql = "INSERT INTO hiking (name, difficulty, distance, duration, elevation) VALUES (:name, :difficulty, :distance, :duration, :elevation);";
+        $stmt = $db->prepare($sql);
+        
+        $stmt->bindParam(":name", $name, PDO::PARAM_STR);
+        $stmt->bindParam(":difficulty", $difficulty, PDO::PARAM_STR);
+        $stmt->bindParam(":distance", $distance, PDO::PARAM_STR);
+        $stmt->bindParam(":duration", $duration, PDO::PARAM_STR);
+        $stmt->bindParam(":elevation", $elevation, PDO::PARAM_STR);
+        $stmt->execute();
+        header("location: ../index.php?error=none");
+        exit;
+    } catch(Exception $e) {
+        echo $e->getMessage();
+        header('location: ../newhike.php?error=stmtfailed');
+    exit;
+    }
+}
