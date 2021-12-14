@@ -1,6 +1,6 @@
 <?php
 include_once 'components/starter.php';
-require_once "./includes/db.inc.php";
+require_once "includes/db.inc.php";
   
     $db = new MyPDO();
   
