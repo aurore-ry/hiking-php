@@ -15,7 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color:#3E4150;
-    width: 100%;
+    width: 95%;
     max-width: 1440px;
     padding: 0px;
 }
@@ -85,7 +85,7 @@ header {
     display: flex;
     justify-content: space-between;
     min-height: 15%;
-    width: 100%;
+    width: 95%;
     max-width: 1440px;
     padding-top: 3rem;
 }
@@ -101,6 +101,12 @@ nav ul li {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.user {
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 0.3rem;
 }
 
 nav ul li:hover {
@@ -138,4 +144,28 @@ footer {
 img {
     height: 10rem;
     width: auto;
+}
+
+.container-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+    width: 100%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.hiking-container {
+    width: 20%;
+    min-width: 100px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.illustration {
+    width: 200px;
+  height: 200px;
 }

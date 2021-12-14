@@ -29,7 +29,7 @@ if (!isset($_SESSION["username"])) {
         <label class="form-label" for="distance">Distance</label>
         <input class="form-input" type="text" name="distance" placeholder="Distance"> <br>
         <label class="form-label" for="duration">Duration</label>
-        <input class="form-input" type="text" name="duration" placeholder="Duration"> <br>
+        <input class="form-input" type="time" name="duration" placeholder="Duration"> <br>
         <label class="form-label" for="elevation">Elevation</label>
         <input class="form-input" type="text" name="elevation" placeholder="Elevation"> <br>
         

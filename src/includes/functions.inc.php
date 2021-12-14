@@ -191,3 +191,20 @@ function addHike($db, $name, $difficulty, $distance, $duration, $elevation) {
     exit;
     }
 }
+
+function addLike($db, $hikingid, $userId) {
+    try {
+        $sql = "INSERT INTO myhikings (user, hiking) VALUES (:user, :hiking);";
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(":user", $userId, PDO::PARAM_STR);
+        $stmt->bindParam(":hiking", $hikingid, PDO::PARAM_STR);
+        $stmt->execute();
+        header("location: ../index.php?error=none");
+        exit;
+    } catch(Exception $e) {
+        echo $e->getMessage();
+        header('location: ../index.php?error=stmtfailed');
+    exit;
+    }
+}
