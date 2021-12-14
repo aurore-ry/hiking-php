@@ -1,7 +1,13 @@
 <?php
-include_once 'components/header.php';
-require_once "./includes/db.inc.php";
-  
+require_once './includes/db.inc.php';
+
+session_start();
+if (!isset($_SESSION["username"])) {
+    header('location: ../login.php?error=notlogged');
+        exit();
+}
+require_once './components/header.php';
+
   $db = new MyPDO();
   $stmt = $db->prepare('SELECT * FROM hiking');
   $stmt->execute();
@@ -23,11 +29,44 @@ require_once "./includes/db.inc.php";
   <div id="hike-app">
     <header id="header-hike-bar">
       <div id="nav-hiking">
-        <form action="post">
+        <form action="">
           <input type="text" name="Search..." id="search" placeholder="Search...">
         </form>
-        <button> <img src="../icons/add.png" alt=""> ADD HIKE</button>
       </div>
+      <button class="open-button" onclick="openForm()">ADD HIKE</button>
+        <div class="form-popup" id="myForm">
+         <form action="./includes/create.inc.php" class="form-container" method="post">
+           <h1>Add an hike</h1>
+           <label for="createdAt"><b>Created at</b></label>
+           <input type="date" placeholder="Enter Password" name="createdAt" required>
+
+           <label for="name"><b>Name</b></label>
+           <input type="text" placeholder="Hike Name" name="name" required>
+
+           <label for="difficulty"><b>very easy</b></label>
+           <input type="radio" placeholder="Difficulty grade" name="difficulty" required>
+
+           <label for="difficulty"><b>easy</b></label>
+           <input type="radio" placeholder="Difficulty grade" name="difficulty" required>
+
+           <label for="difficulty"><b>soft</b></label>
+           <input type="radio" placeholder="Difficulty grade" name="difficulty" required>
+
+           <label for="difficulty"><b>hard</b></label>
+           <input type="radio" placeholder="Difficulty grade" name="difficulty" required>
+
+           <label for="distance"></label>
+           <input type="text" placeholder="Hike distance" name="distance" required>
+
+           <label for="duration">Hike's duration</label>
+           <input type="time" placeholder="Hike duration" name="duration" required>
+
+           <label for="elevation">Hike elevation</label>
+           <input type="text" placeholder="Elevation gain" name="elevation" required>
+           <button type="submit" class="btn">ADD</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+         </form>
+        </div>
     </header>
     <div class="container-box">
       <?php foreach ($res as $prop) : ?>
@@ -43,6 +82,14 @@ require_once "./includes/db.inc.php";
   </div>
 </div>
 </body>
+<script>
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+  function openForm() {
+  document.getElementById("myForm").style.display = "block";
+  }
+ </script>
 </html>
 <?php
 require_once './components/footer.php'
