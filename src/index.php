@@ -62,7 +62,7 @@ $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
 
   <?php
-  require_once './components/footer.php'
+  require_once 'components/footer.php'
   ?>
 </body>
 </html>

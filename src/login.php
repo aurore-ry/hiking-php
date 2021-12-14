@@ -1,5 +1,5 @@
 <?php
-require_once './components/starter.php';
+require_once 'components/starter.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ require_once './components/starter.php';
 </head>
 <body>
 <?php
-require_once './components/header.php';
+require_once 'components/header.php';
 ?>
 <div class="form">
         <h1>Login</h1>
@@ -40,7 +40,7 @@ require_once './components/header.php';
 </div>
 
 <?php
-require_once './components/footer.php'
+require_once 'components/footer.php'
 ?>
 </body>
 </html>

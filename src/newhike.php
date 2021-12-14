@@ -17,7 +17,7 @@ if (!isset($_SESSION["username"])) {
 </head>
 <body>
     <?php
-    require_once './components/header.php';
+    require_once 'components/header.php';
     ?>
     <div class="form">
         <h1>Add a new hike</h1>
@@ -47,7 +47,7 @@ if (!isset($_SESSION["username"])) {
     </div>
 
 <?php
-require_once './components/footer.php'
+require_once 'components/footer.php'
 ?>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-require_once "./db.inc.php";
+require_once "db.inc.php";
 $db = new MyPDO();
 function emptyInputSignup($firstname, $lastname, $username, $email, $password, $confirm) {
     $result;

@@ -5,7 +5,7 @@ if (!isset($_SESSION["username"])) {
         exit();
     } 
 elseif (isset($_SESSION["username"])){
-    require_once './includes/db.inc.php';
+    require_once 'includes/db.inc.php';
     $db = new MyPDO();
 
     try {
@@ -35,7 +35,7 @@ elseif (isset($_SESSION["username"])){
 </head>
 <body>
     <?php
-    require_once './components/header.php';
+    require_once 'components/header.php';
     ?>
 <div class="form">
     <h1>Modify information</h1>
@@ -79,7 +79,7 @@ if (isset($_GET["error"])) {
 </div>
 
 <?php
-require_once './components/footer.php'
+require_once 'components/footer.php'
 ?>
 </body>
 </html>

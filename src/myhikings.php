@@ -4,7 +4,7 @@ if (!isset($_SESSION["username"])) {
     header('location: ../login.php?error=notlogged');
         exit();       
 }
-require_once "./includes/db.inc.php";
+require_once "includes/db.inc.php";
   
   $db = new MyPDO();
   try {
@@ -32,7 +32,7 @@ exit;
 </head>
 <body>
     <?php
-    require_once './components/header.php';
+    require_once 'components/header.php';
     ?>
 <div class="form">
       <h1>Hikings</h1>
@@ -66,7 +66,7 @@ exit;
     </div>
     
     <?php
-    require_once './components/footer.php'
+    require_once 'components/footer.php'
     ?>
 </body>
 </html>
