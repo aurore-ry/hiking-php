@@ -1,5 +1,12 @@
 <IfModule mod_rewrite.c>
-RewriteEngine On
-# directory browsing
-Options All +Indexes
+  RewriteEngine On
+  # directory browsing
+  Options All -Indexes
+
+  	RewriteEngine on
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
 </IfModule>
