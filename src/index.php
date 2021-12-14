@@ -3,11 +3,7 @@ include_once 'components/starter.php';
 require_once "./includes/db.inc.php";
   
     $db = new MyPDO();
-  //$stmt = $db->prepare('SELECT * FROM hiking');
-  //$stmt->execute();
-
- 
-  // print_r($res)
+  
   try {
     $sql = "SELECT * FROM hiking;";
     $stmt = $db->prepare($sql);

@@ -208,3 +208,20 @@ function addLike($db, $hikingid, $userId) {
     exit;
     }
 }
+
+function removeLike($db, $hikingid, $userId) {
+    try {
+        $sql = "DELETE FROM myhikings WHERE user = :user AND hiking = :hiking;";
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(":user", $userId, PDO::PARAM_STR);
+        $stmt->bindParam(":hiking", $hikingid, PDO::PARAM_STR);
+        $stmt->execute();
+        header("location: ../myhikings.php?error=none");
+        exit;
+    } catch(Exception $e) {
+        echo $e->getMessage();
+        header('location: ../myhikings.php?error=stmtfailed');
+    exit;
+    }
+}

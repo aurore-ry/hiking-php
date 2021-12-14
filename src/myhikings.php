@@ -55,11 +55,11 @@ exit;
             <div class="hike-col"><p class="pointer">Duration:</p><p class="prop-data"><?php echo $prop["duration"]; ?> h</p></div>
             <div class="hike-col"><p class="pointer">Elevation:</p><p class="prop-data"><?php echo $prop["elevation"]; ?> m</p></div>
 
-            <!-- <form action="includes/myhikings.inc.php" method="post">
+            <form action="includes/myhikingsremove.inc.php" method="post">
               <input type="hidden" name="like" value="<?php echo $prop["id"]; ?>">
 
-            <button name="submit" class="hide" type="submit">like</button>
-            </form> -->
+            <button name="submit" class="hide" type="submit">remove</button>
+            </form>
           </div>
         <?php endforeach; ?>
       </div>
