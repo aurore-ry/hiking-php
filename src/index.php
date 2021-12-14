@@ -2,12 +2,22 @@
 include_once 'components/starter.php';
 require_once "./includes/db.inc.php";
   
-  $db = new MyPDO();
-  $stmt = $db->prepare('SELECT * FROM hiking');
-  $stmt->execute();
+    $db = new MyPDO();
+  //$stmt = $db->prepare('SELECT * FROM hiking');
+  //$stmt->execute();
 
-  $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+ 
   // print_r($res)
+  try {
+    $sql = "SELECT * FROM hiking;";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+} catch(Exception $e) {
+    echo $e->getMessage();
+    header('location: ../index.php?error=stmtfailed');
+exit;
+}
+$res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -60,4 +70,3 @@ require_once "./includes/db.inc.php";
   ?>
 </body>
 </html>
-
