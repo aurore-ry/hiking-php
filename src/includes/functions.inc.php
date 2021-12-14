@@ -147,16 +147,19 @@ function updateUser($db, $lastname, $firstname, $username, $email, $password, $u
     try {
         if (!empty($password)) {
         $sql = "UPDATE users SET lastname = :lastname, firstname = :firstname, username = :username, email = :email, password = :password WHERE id = :userId;";
+        } else {
+        $sql = "UPDATE users SET lastname = :lastname, firstname = :firstname, username = :username, email = :email WHERE id = :userId;";
         }
         $stmt = $db->prepare($sql);
-        
-        $passwordhash = password_hash($password, PASSWORD_BCRYPT, ["cost" => 14]);
 
         $stmt->bindParam(":lastname", $lastname, PDO::PARAM_STR);
         $stmt->bindParam(":firstname", $firstname, PDO::PARAM_STR);
         $stmt->bindParam(":username", $username, PDO::PARAM_STR);
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
-        $stmt->bindParam(":password", $passwordhash, PDO::PARAM_STR);
+        if (!empty($password)){
+            $passwordhash = password_hash($password, PASSWORD_BCRYPT, ["cost" => 14]);
+            $stmt->bindParam(":password", $passwordhash, PDO::PARAM_STR);
+        }
         $stmt->bindParam(":userId", $userId, PDO::PARAM_INT);
         $stmt->execute();
         $_SESSION['username'] = $username;

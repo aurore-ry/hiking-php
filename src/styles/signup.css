@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#3E4150;
+    width: 100%;
+    max-width: 1440px;
+    padding: 0px;
+}
+
+.form-input {
+    height: 2rem;
+    width: 20rem;
+    border: none;
+    border-radius: 15px;
+    margin: 1rem;
+    padding-left: 1rem;
+}
+
+.form-label {
+    width: 10rem;
+    display: inline-block;
+    font-weight: 600;
+    color: white;
+}
+
+h1 {
+    background-color:#00B980;
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.sign-in {
+   background-color: #00B980;
+   border: none;
+   border-radius: 15px;
+   padding: 0.5rem;
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+   margin-right: 35%;
+ margin-left: 35%;
+   width: 30%;
+   color: white;
+   font-size: 1rem;
+   font-weight: 600;
+}
+
+.sign-in:hover {
+    box-shadow: 2px 2px 0px #0d7657;
+    transform: scale(1.01);
+    transition: ease-in-out 0.5s;
+}
+
+.error {
+    width: 50%;
+    background: rgb(231,74,74);
+background: linear-gradient(290deg, rgba(231,74,74,1) 0%, rgba(232,60,45,0.8155783431536677) 14%, rgba(231,52,20,0.9276231610808385) 35%, rgba(255,0,0,0.7427492115010066) 100%);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-left: 22%;
+    margin-right: 22%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    min-height: 15%;
+    width: 100%;
+    max-width: 1440px;
+    padding: 3rem;
+}
+
+nav ul {
+    display: flex;
+    margin-right: 0rem;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li:hover {
+    text-decoration: underline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #000000;
+
+}
+
+.header-login {
+background-color: #00B980;
+   border: none;
+   border-radius: 20px;
+   padding: 0.5rem;
+   font-size: 1rem;
+   font-weight: 600;
+}
+
+.header-login a {
+    color: white;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+}

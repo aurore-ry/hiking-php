@@ -1,5 +1,5 @@
     <header>
-        <img src="../icons/logo.png" alt="hikingder">
+        <img src="logo.png" alt="logo">
         <nav>
             <ul>
                 <li>
@@ -14,7 +14,7 @@
                         echo "<li><a href='../includes/logout.inc.php'>Logout</a></li>";
                     } else {
                         echo "<li><a href='../signup.php'>Signup</a></li>";
-                        echo "<li><a href='../login.php'>Login</a></li>";
+                        echo "<li class=\"header-login\"><a href='../login.php'>Login</a></li>";
                     }
                 ?>
             </ul>

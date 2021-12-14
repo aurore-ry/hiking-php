@@ -1,5 +1,5 @@
 <?php
-include_once 'components/header.php';
+include_once 'components/starter.php';
 require_once "./includes/db.inc.php";
   
   $db = new MyPDO();
@@ -19,11 +19,14 @@ require_once "./includes/db.inc.php";
     <title>Hikingder</title>
 </head>
 <body>
+  <?php
+  include_once './components/header.php';
+  ?>
     <h1>Main Page</h1>
    
+  <?php
+  require_once './components/footer.php'
+  ?>
 </body>
 </html>
 
-<?php
-require_once './components/footer.php'
-?>
