@@ -1,19 +1,24 @@
 <?php
-include_once 'components/starter.php';
+session_start();
+if (!isset($_SESSION["username"])) {
+    header('location: ../login.php?error=notlogged');
+        exit();       
+}
 require_once "./includes/db.inc.php";
   
-    $db = new MyPDO();
-  
+  $db = new MyPDO();
   try {
-    $sql = "SELECT * FROM hiking;";
+    $sql = "SELECT * FROM hiking INNER JOIN myhikings ON hiking.id = myhikings.hiking WHERE myhikings.user = :user;";
     $stmt = $db->prepare($sql);
+
+    $stmt->bindParam(":user", $_SESSION['id'], PDO::PARAM_STR);
     $stmt->execute();
 } catch(Exception $e) {
     echo $e->getMessage();
-    header('location: ../index.php?error=stmtfailed');
+    header('location: ../login.php?error=stmtfailed');
 exit;
 }
-$res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+  $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -22,14 +27,14 @@ $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hikingder</title>
+    <title>My Hikings</title>
     <link rel="stylesheet" href="./styles/signup.css">
 </head>
 <body>
-  <?php
-  include_once './components/header.php';
-  ?>
-    <div class="form">
+    <?php
+    require_once './components/header.php';
+    ?>
+<div class="form">
       <h1>Hikings</h1>
       <div id="hike-app">
       <div id="header-hike-bar">
@@ -50,19 +55,19 @@ $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             <div class="hike-col"><p class="pointer">Duration:</p><p class="prop-data"><?php echo $prop["duration"]; ?> h</p></div>
             <div class="hike-col"><p class="pointer">Elevation:</p><p class="prop-data"><?php echo $prop["elevation"]; ?> m</p></div>
 
-            <form action="includes/myhikings.inc.php" method="post">
+            <form action="includes/myhikingsremove.inc.php" method="post">
               <input type="hidden" name="like" value="<?php echo $prop["id"]; ?>">
 
-            <button name="submit" class="hide" type="submit">like</button>
+            <button name="submit" class="hide" type="submit">remove</button>
             </form>
           </div>
         <?php endforeach; ?>
       </div>
     </div>
-
-
-  <?php
-  require_once './components/footer.php'
-  ?>
+    
+    <?php
+    require_once './components/footer.php'
+    ?>
 </body>
 </html>
+

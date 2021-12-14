@@ -1,7 +1,7 @@
 <?php
 class MyPDO extends PDO
 {
-    public function __construct($file = './mysetting.ini')
+    public function __construct($file = 'mysetting.ini')
     {
         if (!$settings = parse_ini_file($file, TRUE)) throw new exception('Unable to open ' . $file . '.');
         $dns = $settings['database']['driver'] .
