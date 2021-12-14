@@ -8,7 +8,7 @@ class MyPDO extends PDO
         $user = $_ENV['DATABASE_USER'];
         $pass = $_ENV['DATABASE_PASSWORD'];
         $db_name = $_ENV['DATABASE_NAME'];
-        parent::__construct('mysql://host=' . $host . ';port=' . $port . ';dbname=' . $db_name, $user, $pass);
+        parent::__construct('mysql:host=' . $host . ';port=' . $port . ';dbname=' . $db_name, $user, $pass);
     }
 }
 ?>
