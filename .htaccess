@@ -1,5 +1,0 @@
-<IfModule mod_rewrite.c>
-RewriteEngine On
-# directory browsing
-Options All +Indexes
-</IfModule>

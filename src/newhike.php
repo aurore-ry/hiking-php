@@ -37,9 +37,21 @@ if (!isset($_SESSION["username"])) {
             if (isset($_GET["error"])) {
               echo  '<div class="error">';
             if ($_GET["error"] == "emptyinput") {
-                echo "<p>Fill in all the fields!</p>";  
-                echo '</div>';
+                echo "<p>Fill in all the fields!</p>";      
             }
+            if ($_GET["error"] == "invaliddistance") {
+                echo "<p>invalid distance!</p>";      
+            }
+            if ($_GET["error"] == "invaliddifficulty") {
+                echo "<p>invalid difficulty!</p>";      
+            }
+            if ($_GET["error"] == "invalidduration") {
+                echo "<p>invalid duration!</p>";      
+            }
+            if ($_GET["error"] == "invalidelevation") {
+                echo "<p>invalid elevation!</p>";      
+            }
+            echo '</div>';
         }
         ?>
         <button class="sign-in" type="submit" name="submit">Add hike</button>

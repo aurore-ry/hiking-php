@@ -225,3 +225,63 @@ function removeLike($db, $hikingid, $userId) {
     exit;
     }
 }
+
+function emptyInputAddHike ($name, $difficulty, $distance, $duration, $elevation) {
+    $result;
+    if (empty($name) || empty($difficulty) || empty($distance) || empty($duration) || empty($elevation)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function invalidName($name) {
+    $result;
+    if (!preg_match("/^[a-zA-Z0-9]*$/", $name)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function invalidDifficulty($difficulty) {
+    $result;
+    if (!preg_match("/^[a-zA-Z]*$/", $difficulty)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function invalidDistance($distance) {
+    $result;
+    if (!is_numeric($distance)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function invalidDuration($duration) {
+    $result;
+    if (!is_numeric($duration)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function invalidElevation ($elevation) {
+    $result;
+    if (!is_numeric($elevation)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}

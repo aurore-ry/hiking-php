@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     require_once 'db.inc.php';
     require_once 'functions.inc.php';
     $db= new MyPDO();
-    
+
     removeLike($db, $hikingid, $userId);
 
 } else {
