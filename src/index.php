@@ -35,10 +35,8 @@ require_once './components/header.php';
       </div>
       <button class="open-button" onclick="openForm()">ADD HIKE</button>
         <div class="form-popup" id="myForm">
-         <form action="./includes/create.inc.php" class="form-container" method="post">
+         <form action="includes/create.inc.php" class="form-container" method="post">
            <h1>Add an hike</h1>
-           <label for="createdAt"><b>Created at</b></label>
-           <input type="date" placeholder="Enter Password" name="createdAt" required>
 
            <label for="name"><b>Name</b></label>
            <input type="text" placeholder="Hike Name" name="name" required>
