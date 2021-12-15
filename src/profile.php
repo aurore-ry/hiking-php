@@ -1,6 +1,6 @@
 <?php
-require_once 'includes/profile.inc.php';
 session_start();
+require_once 'includes/profile.inc.php';
 if (!isset($_SESSION["username"])) {
     header('location: /login?error=notlogged');
         exit();

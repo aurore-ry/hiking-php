@@ -1,12 +1,12 @@
 <?php
-require_once 'includes/myhikingsremove.inc.php';
 session_start();
 if (!isset($_SESSION["username"])) {
-    header('location: /login?error=notlogged');
-        exit();       
+  header('location: /login?error=notlogged');
+  exit();       
 }
 require_once "includes/db.inc.php";
-  
+require_once 'includes/myhikingsremove.inc.php';
+
   $db = new MyPDO();
   try {
     $sql = "SELECT * FROM hiking INNER JOIN myhikings ON hiking.id = myhikings.hiking WHERE myhikings.user = :user;";

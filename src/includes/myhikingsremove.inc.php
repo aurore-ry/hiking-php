@@ -15,8 +15,4 @@ if (isset($_POST['submit'])) {
     
     removeLike($db, $hikingid, $userId);
 
-} else {
-    header('location: /?error=nolike');
-    exit();
-}
-
+} 

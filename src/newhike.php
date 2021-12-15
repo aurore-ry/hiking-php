@@ -1,10 +1,7 @@
 <?php
-require_once 'includes/addhike.inc.php';
 session_start();
-if (!isset($_SESSION["username"])) {
-    header('location: /login?error=notlogged');
-        exit();
-}
+require_once 'includes/addhike.inc.php';
+
 ?>
 
 <!DOCTYPE html>

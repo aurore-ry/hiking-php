@@ -1,7 +1,8 @@
 <?php
-
 session_start();
-session_unset();
-session_destroy();
-header("location: /");
-exit();
+if (!isset($_SESSION["username"])) {
+  session_unset();
+  session_destroy();
+  header("location: /");
+  exit();
+}

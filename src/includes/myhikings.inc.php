@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION["username"])) {
     header('location: /login?error=notlogged');
-        exit();
+    exit();
 }
 
 if (isset($_POST['submit'])) {
@@ -15,8 +15,5 @@ if (isset($_POST['submit'])) {
     
     addLike($db, $hikingid, $userId);
 
-} else {
-    header('location: /?error=nolike');
-    exit();
-}
+} 
 

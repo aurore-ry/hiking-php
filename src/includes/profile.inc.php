@@ -1,5 +1,11 @@
 <?php
+ session_start();
 
+ if (!isset($_SESSION["username"])) {
+    header("location: /login?error=notlogged");
+    exit();
+  }
+  
 if (isset($_POST['submit'])) {
 
     $firstname = $_POST['firstname'];

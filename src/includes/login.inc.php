@@ -1,4 +1,8 @@
 <?php
+if (isset($_SESSION["username"])) {
+    header('location: /');
+    exit();
+}
 
 if (isset($_POST['submit'])) {
 
