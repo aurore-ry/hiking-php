@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'includes/addhike.inc.php';
+require_once 'includes/newhike.inc.php';
 
 ?>
 
@@ -19,7 +19,7 @@ require_once 'includes/addhike.inc.php';
     ?>
     <div class="form">
         <h1>Add a new hike</h1>
-        <form action="/addhike" method="post">
+        <form action="/newhike" method="post">
         <label class="form-label" for="name">Name</label>
         <input class="form-input" type="text" name="name" placeholder="Name"> <br>
         <label class="form-label" for="difficulty">Difficulty</label>
