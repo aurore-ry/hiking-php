@@ -5,8 +5,6 @@
   Options All -Indexes
 
   RewriteEngine on
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
 
   # If the request has already been rewritten
   # Or maps to an existing file then stop here.
