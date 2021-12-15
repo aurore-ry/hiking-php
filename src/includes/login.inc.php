@@ -16,7 +16,4 @@ if (isset($_POST['submit'])) {
 
     loginUser($db, $username, $password);
 
-} else {
-    header('location: /login');
-    exit();
-}
+} 
