@@ -183,6 +183,7 @@ function addHike($db, $name, $difficulty, $distance, $duration, $elevation) {
         $stmt->bindParam(":duration", $duration, PDO::PARAM_STR);
         $stmt->bindParam(":elevation", $elevation, PDO::PARAM_STR);
         $stmt->execute();
+        unset($_POST["submit"]);
         header("location: /?error=none");
         exit;
     } catch(Exception $e) {
