@@ -4,17 +4,11 @@ require_once "includes/db.inc.php";
 require_once "includes/myhikings.inc.php";
   
     $db = new MyPDO();
-  
-  try {
+    
     $sql = "SELECT * FROM hiking;";
     $stmt = $db->prepare($sql);
     $stmt->execute();
-} catch(Exception $e) {
-    echo $e->getMessage();
-    header('location: /?error=stmtfailed');
-    exit;
-}
-$res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>

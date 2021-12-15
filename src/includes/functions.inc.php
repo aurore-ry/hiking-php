@@ -201,11 +201,11 @@ function addLike($db, $hikingid, $userId) {
         $stmt->bindParam(":user", $userId, PDO::PARAM_STR);
         $stmt->bindParam(":hiking", $hikingid, PDO::PARAM_STR);
         $stmt->execute();
-        header("location: /?error=none");
+        header("location: /myhikings?error=none");
         exit;
     } catch(Exception $e) {
         echo $e->getMessage();
-        header('location: /?error=stmtfailed');
+        header('location: /myhikings?error=stmtfailed');
     exit;
     }
 }
