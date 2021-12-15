@@ -1,6 +1,7 @@
 <?php
 include_once 'components/starter.php';
 require_once "includes/db.inc.php";
+require_once "includes/myhikings.inc.php";
   
     $db = new MyPDO();
   
@@ -50,7 +51,7 @@ $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             <div class="hike-col"><p class="pointer">Duration:</p><p class="prop-data"><?php echo $prop["duration"]; ?> h</p></div>
             <div class="hike-col"><p class="pointer">Elevation:</p><p class="prop-data"><?php echo $prop["elevation"]; ?> m</p></div>
 
-            <form action="includes/myhikings.inc.php" method="post">
+            <form action="/myhikings" method="post">
               <input type="hidden" name="like" value="<?php echo $prop["id"]; ?>">
 
             <button name="submit" class="hide" type="submit">like</button>
