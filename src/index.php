@@ -27,7 +27,7 @@ $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 </head>
 <body>
   <?php
-  include_once './components/header.php';
+  include_once 'components/header.php';
   ?>
     <div class="form">
       <h1>Hikings</h1>
