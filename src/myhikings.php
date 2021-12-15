@@ -1,4 +1,5 @@
 <?php
+require_once 'includes/myhikingsremove.inc.php';
 session_start();
 if (!isset($_SESSION["username"])) {
     header('location: /login?error=notlogged');
@@ -55,7 +56,7 @@ exit;
             <div class="hike-col"><p class="pointer">Duration:</p><p class="prop-data"><?php echo $prop["duration"]; ?> h</p></div>
             <div class="hike-col"><p class="pointer">Elevation:</p><p class="prop-data"><?php echo $prop["elevation"]; ?> m</p></div>
 
-            <form action="includes/myhikingsremove.inc.php" method="post">
+            <form action="/myhikingsremove" method="post">
               <input type="hidden" name="like" value="<?php echo $prop["id"]; ?>">
 
             <button name="submit" class="hide" type="submit">remove</button>

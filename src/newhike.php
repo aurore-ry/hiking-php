@@ -1,4 +1,5 @@
 <?php
+require_once 'includes/addhike.inc.php';
 session_start();
 if (!isset($_SESSION["username"])) {
     header('location: /login?error=notlogged');
@@ -21,7 +22,7 @@ if (!isset($_SESSION["username"])) {
     ?>
     <div class="form">
         <h1>Add a new hike</h1>
-        <form action="includes/addhike.inc.php" method="post">
+        <form action="/addhike" method="post">
         <label class="form-label" for="name">Name</label>
         <input class="form-input" type="text" name="name" placeholder="Name"> <br>
         <label class="form-label" for="difficulty">Difficulty</label>

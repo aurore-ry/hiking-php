@@ -1,4 +1,5 @@
 <?php
+require_once 'includes/profile.inc.php';
 session_start();
 if (!isset($_SESSION["username"])) {
     header('location: /login?error=notlogged');
@@ -39,7 +40,7 @@ elseif (isset($_SESSION["username"])){
     ?>
 <div class="form">
     <h1>Modify information</h1>
-    <form action="includes/profile.inc.php" method="post">
+    <form action="/profile" method="post">
     <label class="form-label" for="firstname">First Name</label>
     <input class="form-input" type="text" name="firstname" value="<?php echo "$currentUser[firstname]";?>"> <br>
     <label class="form-label" for="lastname">Last Name</label>

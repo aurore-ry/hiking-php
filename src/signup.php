@@ -1,5 +1,6 @@
 <?php
 require_once 'components/starter.php';
+require_once 'includes/signup.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,7 @@ require_once 'components/starter.php';
     ?>
     <div class="form">
         <h1>Sign up</h1>
-        <form action="includes/signup.inc.php" method="post">
+        <form action="/signup" method="post">
         <label class="form-label" for="firstname">First Name</label>
         <input class="form-input" type="text" name="firstname" placeholder="First name"> <br>
         <label class="form-label" for="lastname">Last Name</label>
