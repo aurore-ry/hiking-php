@@ -4,8 +4,6 @@
   # directory browsing
   Options All -Indexes
 
-  RewriteEngine on
-
   # If the request has already been rewritten
   # Or maps to an existing file then stop here.
   # (Can't test for dir here since would not rewrite the doc root)
