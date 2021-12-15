@@ -10,8 +10,9 @@ if (isset($_POST['submit'])) {
 
     require_once 'db.inc.php';
     require_once 'functions.inc.php';
-    $db = new MyPDO();
 
+    $db = new MyPDO();
+    echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 
     addHike($db, $name, $difficulty, $distance, $duration, $elevation);
 
