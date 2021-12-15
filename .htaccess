@@ -1,9 +1,24 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
   # directory browsing
   Options All -Indexes
 
   RewriteEngine on
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
+
+  # If the request has already been rewritten
+  # Or maps to an existing file then stop here.
+  # (Can't test for dir here since would not rewrite the doc root)
+  RewriteCond 301 . [OR]
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # No file extension on request then append .php and rewrite to subdir
+  RewriteCond %{REQUEST_URI} /(.+)
+  RewriteRule !\.[a-z0-4]{2,4}$ /src/%1.php [NC,L]
+
+  # All remaining requests simply get rewritten to the subdir
+  RewriteRule (.*) /src/$1 [L]
 </IfModule>
