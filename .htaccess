@@ -1,4 +1,9 @@
 <IfModule mod_rewrite.c>
-RewriteEngine on
-RewriteRule ^([^/]+) /src/$1.php [L]
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule (.+)$ /src/$1.php [L]
 </IfModule>
