@@ -1,10 +1,4 @@
 <IfModule mod_rewrite.c>
 RewriteEngine on
-
-RewriteCond %{REQUEST_URI} ^/(.+)$
-RewriteRule ^/src/index\.php$ / [R=301,QSD,L,NC,]
-
-RewriteCond %{REQUEST_URI} ^/(.+)$
-RewriteRule ^/src/(.+)\.php$ /%1 [R=301,QSD,L,NC,]
-
+RewriteRule ^([^/]+) /src/$1.php [L]
 </IfModule>
