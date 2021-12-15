@@ -12,7 +12,7 @@
                     if (isset($_SESSION["username"])) {
                         echo "<li><a href='/newhike'>add hike</a></li>";
                         echo "<li class='user'><a href='/profile'>". $_SESSION["username"] ." connected</a></li>";
-                        echo "<li><a class=\"header-login\" href='../includes/logout.inc.php'>Logout</a></li>";
+                        echo "<li><a class=\"header-login\" href='/logout'>Logout</a></li>";
                     } else {
                         echo "<li><a href='/signup'>Signup</a></li>";
                         echo "<li><a class=\"header-login\" href='/login'>Login</a></li>";
