@@ -1,5 +1,6 @@
 <?php
 require_once 'components/starter.php';
+require_once 'includes/login.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,7 @@ require_once 'components/header.php';
 ?>
 <div class="form">
         <h1>Login</h1>
-        <form action="includes/login.inc.php" method="post">
+        <form action="/login" method="post">
         <label class="form-label" for="username">Username</label>
         <input class="form-input" type="text" name="username" placeholder="username"> <br>
         <label class="form-label" for="password">Password</label>
