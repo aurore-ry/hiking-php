@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["username"])) {
-    header('location: ../login.php?error=notlogged');
+    header('location: /login?error=notlogged');
         exit();
     } 
 elseif (isset($_SESSION["username"])){
@@ -16,7 +16,7 @@ elseif (isset($_SESSION["username"])){
         $stmt->execute();
     } catch(Exception $e) {
         echo $e->getMessage();
-        header('location: ../signup.php?error=stmtfailed');
+        header('location: /signup?error=stmtfailed');
     exit;
     }
     $currentUser = $stmt->fetch(PDO::FETCH_ASSOC);

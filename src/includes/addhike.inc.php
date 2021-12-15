@@ -16,6 +16,6 @@ if (isset($_POST['submit'])) {
     addHike($db, $name, $difficulty, $distance, $duration, $elevation);
 
 } else {
-    header('location: ../signup.php');
+    header('location: /signup');
     exit();
 }

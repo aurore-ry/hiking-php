@@ -61,7 +61,7 @@ function usernameTaken($db, $username) {
         $stmt->execute();
     } catch(Exception $e) {
         echo $e->getMessage();
-        header('location: ../signup.php?error=stmtfailed');
+        header('location: /signup?error=stmtfailed');
     exit;
     }
     $usernameCheck = $stmt->rowCount();
@@ -86,11 +86,11 @@ function createUser($db, $lastname, $firstname, $username, $email, $password) {
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->bindParam(":password", $passwordhash, PDO::PARAM_STR);
         $stmt->execute();
-        header("location: ../login.php?error=none");
+        header("location: /login?error=none");
         exit;
     } catch(Exception $e) {
         echo $e->getMessage();
-        header('location: ../signup.php?error=stmtfailed');
+        header('location: /signup?error=stmtfailed');
     exit;
     }
 }
@@ -109,7 +109,7 @@ function loginUser($db, $username, $password) {
     $usernameExists = usernameTaken($db, $username);
 
     if ($usernameExists === false) {
-        header('Location: ../login.php?error=wronglogin');
+        header('Location: /login?error=wronglogin');
         exit();
     }
     //
@@ -121,7 +121,7 @@ function loginUser($db, $username, $password) {
         $stmt->execute();
     } catch(Exception $e) {
         echo $e->getMessage();
-        header('location: ../login.php?error=stmtfailed');
+        header('location: /login?error=stmtfailed');
     exit;
     }
     $usernameCheck = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -131,13 +131,13 @@ function loginUser($db, $username, $password) {
     $checkPassword = password_verify($password, $passwordhashed);
 
     if ($checkPassword === false) {
-        header('Location: ../login.php?error=wronglogin');
+        header('Location: /login?error=wronglogin');
         exit();
     } else if ($checkPassword === true) {
         session_start();
         $_SESSION["username"] = $usernameCheck["username"];
         $_SESSION["id"] = $usernameCheck["id"];
-        header("location: ../index.php");
+        header("location: /");
         exit();
     }
 }
@@ -163,11 +163,11 @@ function updateUser($db, $lastname, $firstname, $username, $email, $password, $u
         $stmt->bindParam(":userId", $userId, PDO::PARAM_INT);
         $stmt->execute();
         $_SESSION['username'] = $username;
-        header("location: ../index.php?error=none");
+        header("location: /?error=none");
         exit;
     } catch(Exception $e) {
         echo $e->getMessage();
-        header('location: ../profile.php?error=stmtfailed');
+        header('location: /profile?error=stmtfailed');
     exit;
     }
 }
@@ -183,11 +183,11 @@ function addHike($db, $name, $difficulty, $distance, $duration, $elevation) {
         $stmt->bindParam(":duration", $duration, PDO::PARAM_STR);
         $stmt->bindParam(":elevation", $elevation, PDO::PARAM_STR);
         $stmt->execute();
-        header("location: ../index.php?error=none");
+        header("location: /?error=none");
         exit;
     } catch(Exception $e) {
         echo $e->getMessage();
-        header('location: ../newhike.php?error=stmtfailed');
+        header('location: /newhike?error=stmtfailed');
     exit;
     }
 }
@@ -200,11 +200,11 @@ function addLike($db, $hikingid, $userId) {
         $stmt->bindParam(":user", $userId, PDO::PARAM_STR);
         $stmt->bindParam(":hiking", $hikingid, PDO::PARAM_STR);
         $stmt->execute();
-        header("location: ../index.php?error=none");
+        header("location: /?error=none");
         exit;
     } catch(Exception $e) {
         echo $e->getMessage();
-        header('location: ../index.php?error=stmtfailed');
+        header('location: /?error=stmtfailed');
     exit;
     }
 }
@@ -217,11 +217,11 @@ function removeLike($db, $hikingid, $userId) {
         $stmt->bindParam(":user", $userId, PDO::PARAM_STR);
         $stmt->bindParam(":hiking", $hikingid, PDO::PARAM_STR);
         $stmt->execute();
-        header("location: ../myhikings.php?error=none");
+        header("location: /myhikings?error=none");
         exit;
     } catch(Exception $e) {
         echo $e->getMessage();
-        header('location: ../myhikings.php?error=stmtfailed');
+        header('location: /myhikings?error=stmtfailed');
     exit;
     }
 }

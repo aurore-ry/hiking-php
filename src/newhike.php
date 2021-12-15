@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["username"])) {
-    header('location: ../login.php?error=notlogged');
+    header('location: /login?error=notlogged');
         exit();
 }
 ?>

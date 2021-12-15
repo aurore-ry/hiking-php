@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["username"])) {
-    header('location: ../login.php?error=notlogged');
+    header('location: /login?error=notlogged');
         exit();
 }
 
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     removeLike($db, $hikingid, $userId);
 
 } else {
-    header('location: ../index.php?error=nolike');
+    header('location: /?error=nolike');
     exit();
 }
 

@@ -10,13 +10,13 @@ if (isset($_POST['submit'])) {
     $db= new MyPDO();
 
     if (emptyInputLogin($username, $password) !== false) {
-        header('location: ../login.php?error=emptyinput');
+        header('location: /login?error=emptyinput');
         exit();
     }
 
     loginUser($db, $username, $password);
 
 } else {
-    header('location: ../login.php');
+    header('location: /login');
     exit();
 }

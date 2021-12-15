@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["username"])) {
-    header('location: ../login.php?error=notlogged');
+    header('location: /login?error=notlogged');
         exit();       
 }
 require_once "includes/db.inc.php";
@@ -15,7 +15,7 @@ require_once "includes/db.inc.php";
     $stmt->execute();
 } catch(Exception $e) {
     echo $e->getMessage();
-    header('location: ../login.php?error=stmtfailed');
+    header('location: /login?error=stmtfailed');
 exit;
 }
   $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);

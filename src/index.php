@@ -10,7 +10,7 @@ require_once "includes/db.inc.php";
     $stmt->execute();
 } catch(Exception $e) {
     echo $e->getMessage();
-    header('location: ../index.php?error=stmtfailed');
+    header('location: /?error=stmtfailed');
     exit;
 }
 $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
