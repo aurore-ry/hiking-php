@@ -4,6 +4,8 @@ RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule (.+)$ /src/$1.php [L]
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond $1 !^(index\.php)
+RewriteRule ^(.*)$ /src/$1.php [L]
 </IfModule>
